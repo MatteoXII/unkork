@@ -1,0 +1,801 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Carta dei vini</title>
+<style>
+  :root {
+    --site-bg: #edd8bd;
+    --accent: #394a9a;
+    --accent-light: #5a6bc9;
+    --text: #222;
+    --muted: #555;
+  }
+  html,body {
+    margin: 0;
+    padding: 0;
+    font-family: "Georgia", "Times New Roman", serif;
+    background: var(--site-bg);
+    color: var(--text);
+  }
+  .container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px 60px 20px;
+  }
+  h1 {
+    text-align: center;
+    color: var(--accent);
+    font-size: 30px;
+    margin-bottom: 30px;
+    font-weight: 600;
+  }
+  /* Accordion base */
+  .section {
+    margin-bottom: 18px;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+  }
+  .hdr-l1 button {
+    all: unset;
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--accent);
+    color: #fff;
+    font-size: 20px;
+    padding: 16px 20px;
+    font-weight: 600;
+    letter-spacing: .5px;
+  }
+  .hdr-l1 .chev, .hdr-l2 .chev {
+    font-size: 20px;
+    transition: transform .25s ease;
+  }
+  .content-l1, .content-l2 {
+    display: none;
+    background: transparent;
+  }
+  .content-l1.open, .content-l2.open {
+    display: block;
+  }
+  /* Level 2 submenu */
+  .subsection {
+    border-top: 1px solid rgba(0,0,0,0.1);
+  }
+  .hdr-l2 button {
+    all: unset;
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(57,74,154,0.1);
+    color: var(--accent);
+    font-size: 18px;
+    padding: 12px 24px;
+    font-weight: 600;
+  }
+  .wines {
+    padding: 6px 36px 14px 36px;
+  }
+  .wine {
+    padding: 6px 0;
+    border-bottom: 1px dashed rgba(0,0,0,0.1);
+  }
+  .wine:last-child {border-bottom:0;}
+  .wine .name {font-weight:700;}
+  .wine .meta {
+    font-style: italic;
+    color: var(--muted);
+    font-size: 14px;
+    margin-top: 2px;
+  }
+  .wine .price {
+    margin-top: 4px;
+    font-weight: 600;
+  }
+  @media (max-width:520px){
+    .hdr-l1 button{font-size:18px;padding:14px;}
+    .hdr-l2 button{font-size:16px;padding:10px 20px;}
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Carta dei vini</h1>
+
+  <!-- Bollicine -->
+  <div class="section">
+    <div class="hdr-l1"><button aria-expanded="false" aria-controls="bollicine"><span>Bollicine</span><span class="chev">+</span></button></div>
+    <div class="content-l1" id="bollicine">
+
+        <div class="subsection">
+          <div class="hdr-l2"><button aria-expanded="false" aria-controls="bollicine-fr"><span>Francia</span><span class="chev">+</span></button></div>
+          <div class="content-l2" id="bollicine-fr">
+            <div class="wines">
+
+              <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 4px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">
+                Produttore: Yves Louvet (Montagne De Remis)
+              </div>
+              <div class="wine"><div class="name">“Selection D’Emile” Champagne Brut</div><div class="meta">Uva: Pinot Noir, Chardonnay</div><div class="price">Asporto €42 · Servizio €53</div></div>
+              <div class="wine"><div class="name">“Extra Brut De Gilbert” Champagne Extra Brut</div><div class="meta">Uva: Pinot Noir, Chardonnay</div><div class="price">Asporto €44 · Servizio €55</div></div>
+              <div class="wine"><div class="name">“Reserve De Théophile” Champagne Brut</div><div class="meta">Uva: Pinot Noir, Chardonnay</div><div class="price">Asporto €44 · Servizio €55</div></div>
+              <div class="wine"><div class="name">“Blanche De Marie” Champagne Brut</div><div class="meta">Uva: Chardonnay</div><div class="price">Asporto €44 · Servizio €55</div></div>
+              <div class="wine"><div class="name">“Rosé D’Aglaèe” Champagne Brut</div><div class="meta">Uva: Pinot Noir</div><div class="price">Asporto €44 · Servizio €55</div></div>
+              <div class="wine"><div class="name">“L’Arum D’Henritte” Champagne Extra Brut Premier Cru</div><div class="meta">Uva: Pinot Blanc</div><div class="price">Asporto €76 · Servizio €95</div></div>
+
+              <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">
+                Produttore: Hure Freres (Montagne De Remis)
+              </div>
+              <div class="wine"><div class="name">“Invitation” Champagne Cuvée De Reserve Brut</div><div class="meta">Uva: Chardonnay, Pinot Noir, Pinot Meunier</div><div class="price">Asporto €73 · Servizio €92</div></div>
+              
+              <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">
+                Produttore: Christian Gosset (Ay)
+              </div>
+              <div class="wine"><div class="name">“A04” Champagne Extra Brut Grand Cru</div><div class="meta">Uva: Pinot Noir, Chardonnay</div><div class="price">Asporto €74 · Servizio €93</div></div>
+            
+              <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">
+                Produttore: Bernard Pitois (Ay)
+              </div>
+              <div class="wine"><div class="name">“Carte Blanche” Champagne Brut Premier Cru</div><div class="meta">Uva: Pinot Noir, Chardonnay, Pinot Meunier</div><div class="price">Asporto €49 · Servizio €62</div></div>
+
+              <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">
+                Produttore: Henri Goutorbe (Ay)
+              </div>
+              <div class="wine"><div class="name">“Extra Brut” Champagne Extra Brut</div><div class="meta">Uva: Pinot Noir, Chardonnay, Pinot Meunier</div><div class="price">Asporto €58 · Servizio €73</div></div>
+
+              <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">
+                Produttore: Alexandre Bonnet (Côte Des Bar)
+              </div>
+              <div class="wine"><div class="name">Champagne Extra Brut Blanc De Noirs</div><div class="meta">Uva: Pinot Noir</div><div class="price">Asporto €00 · Servizio €00</div></div><div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">
+                Produttore: De Sousa (Avize)
+              </div>
+              <div class="wine"><div class="name">“Chemins De Terroirs” Champagne Extra Brut</div><div class="meta">Uva: Chardonnay, Pinot Noir, Pinot Meunier</div><div class="price">Asporto €00 · Servizio €00</div></div><div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">
+                Produttore: Françoise Bedel (Valle De La Marne)
+              </div>
+              <div class="wine"><div class="name">“Origin’Elle” Champagne Brut</div><div class="meta">Uva: Pinot Meunier</div><div class="price">Asporto €00 · Servizio €00</div></div><div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">
+                Produttore: Charpentier (Valle De La Marne)
+              </div>
+              <div class="wine"><div class="name">“Tradition” Champagne Brut</div><div class="meta">Uva: Pinot Meunier, Chardonnay, Pinot Noir</div><div class="price">Asporto €46 · Servizio €58</div></div>
+
+              <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">
+                Produttore: Huguenot Tassin (Valle De La Marne)
+              </div>
+              <div class="wine"><div class="name">“Signature” Champagne Brut</div><div class="meta">Uva: Pinot Noir</div><div class="price">Asporto €52 · Servizio €65</div></div>
+
+              <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">
+                Produttore: Bailly Lapierre (Bourgone)
+              </div>
+              <div class="wine"><div class="name">Crémant De Bourgogne Brut</div><div class="meta">Uva: Pinot Noir</div><div class="price">Asporto €25 · Servizio €33</div></div>
+
+              <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">
+                Produttore: Antech (Limoux)
+              </div>
+              <div class="wine"><div class="name">Crémant De Limoux AOC Brut Nature</div><div class="meta">Uva: Chardonnay, Chenin</div><div class="price">Asporto €25 · Servizio €33</div></div>
+              <div class="wine"><div class="name">Crémant De Limoux Brut Rosé Cuvée Françoise</div><div class="meta">Uva: Chardonnay, Chenin, Pinot Noir</div><div class="price">Asporto €24 · Servizio €32</div></div>
+              <div class="wine"><div class="name">“M Le Mauzac” Brut Nature</div><div class="meta">Uva: Mauzac</div><div class="price">Asporto €21 · Servizio €29</div></div>
+            
+            </div>
+          </div>
+        </div>
+
+<div class="subsection">
+          <div class="hdr-l2"><button aria-expanded="false" aria-controls="bollicine-it"><span>Italia Metodo Classico</span><span class="chev">+</span></button></div>
+          <div class="content-l2" id="bollicine-it">
+            <div class="wines">
+
+              <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 4px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">
+                Produttore: Angelo Negro (Piemonte)
+              </div>
+              <div class="wine"><div class="name">“Giovanni” Blanc De Blanc Dosage Zero DOCG</div><div class="meta">Uva: Roero Arneis</div><div class="price">Asporto €30 · Servizio €38</div></div>
+
+              <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">
+                Produttore: Bortolotti (Valdobbiadene)
+              </div>
+              <div class="wine"><div class="name">“Metodo Classico” Valdobbiadene DOCG Extra Brut Millesimato</div><div class="meta">Uva: Glera</div><div class="price">Asporto €24 · Servizio €32</div></div>
+              
+              <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">
+                Produttore: Cà Dei Frati (Sirmione)
+              </div>
+              <div class="wine"><div class="name">Cuvée Dei Frati Brut</div><div class="meta">Uva: Turbiana, Chardonnay</div><div class="price">Asporto €27 · Servizio €35</div></div>
+
+              <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">
+                Produttore: Majolini (Franciacorta)
+              </div>
+              <div class="wine"><div class="name">“Electo” Franciacorta Brut Millesimato 2018 DOCG</div><div class="meta">Uva: Chardonnay, Pinot Nero</div><div class="price">Asporto €35 · Servizio €44</div></div>
+              <div class="wine"><div class="name">Franciacorta Pas Dosè DOCG Millesimato 2021</div><div class="meta">Uva: Chardonnay</div><div class="price">Asporto €30 · Servizio €38</div></div>
+              <div class="wine"><div class="name">Franciacorta Brut Rosé DOCG</div><div class="meta">Uva: Pinot Nero</div><div class="price">Asporto €35 · Servizio €44</div></div>
+              <div class="wine"><div class="name">Franciacorta Brut DOCG</div><div class="meta">Uva: Chardonnay, Pinot Nero</div><div class="price">Asporto €27 · Servizio €35</div></div>
+              <div class="wine"><div class="name">Franciacorta Brut Satèn DOCG</div><div class="meta">Uva: Chardonnay</div><div class="price">Asporto €30 · Servizio €38</div></div>
+              <div class="wine"><div class="name">“Vintage” Franciacorta Brut Millesimato 2021 DOCG</div><div class="meta">Uva: Chardonnay, Pinot Nero</div><div class="price">Asporto €30 · Servizio €38</div></div>
+              <div class="wine"><div class="name">Franciacorta Brut Blanc De Noir DOCG</div><div class="meta">Uva: Pinot Nero</div><div class="price">Asporto €35 · Servizio €44</div></div>
+
+              <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">
+                Produttore: Luca Bellani (Oltrepò Pavese)
+              </div>
+              <div class="wine"><div class="name">“Sessanta” Oltrepò Pavese Dosaggio Zero DOCG</div><div class="meta">Uva: Pinot Nero</div><div class="price">Asporto €27 · Servizio €35</div></div>
+              <div class="wine"><div class="name">“Centoventi” Oltrepò Pavese Dosaggio Zero Rosé DOCG</div><div class="meta">Uva: Pinot Nero</div><div class="price">Asporto €36 · Servizio €45</div></div>
+              <div class="wine"><div class="name">“A Lorenzo” VSQ Extra Brut</div><div class="meta">Uva: Pinot Nero</div><div class="price">Asporto €48 · Servizio €60</div></div>
+
+              <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">
+                Produttore: Cà Di Frara (Oltrepò Pavese)
+              </div>
+              <div class="wine"><div class="name">“Apnea” VSQ Extra Brut</div><div class="meta">Uva: Pinot Nero</div><div class="price">Asporto €49 · Servizio €62</div></div>
+
+              <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">
+                Produttore: Pisoni (Trento DOC)
+              </div>
+              <div class="wine"><div class="name">Trento DOC Blanc De Noir Millesimato 2020</div><div class="meta">Uva: Pinot Nero</div><div class="price">Asporto €35 · Servizio €44</div></div>
+              <div class="wine"><div class="name">Trento DOC Nature Millesimato 2021</div><div class="meta">Uva: Chardonnay</div><div class="price">Asporto €31 · Servizio €39</div></div>
+              <div class="wine"><div class="name">Trento DOC Brut</div><div class="meta">Uva: Chardonnay</div><div class="price">Asporto €24 · Servizio €32</div></div>
+              <div class="wine"><div class="name">Trento DOC Brut Rosé Millesimato 2021</div><div class="meta">Uva: Pinot Nero</div><div class="price">Asporto €34 · Servizio €43</div></div>
+              <div class="wine"><div class="name">Trento DOC Extra Brut Millesimato 2019</div><div class="meta">Uva: Pinot Bianco</div><div class="price">Asporto €33 · Servizio €42</div></div>
+              <div class="wine"><div class="name">Trento DOC Brut Millesimato 2021</div><div class="meta">Uva: Chardonnay</div><div class="price">Asporto €27 · Servizio €35</div></div>
+              <div class="wine"><div class="name">“Erminia Segalla” Trento DOC Extra Brut Riserva Millesimato 2014</div><div class="meta">Uva: Chardonnay</div><div class="price">Asporto €67 · Servizio €84</div></div>
+
+              <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">
+                Produttore: Cortenera (Monti Lessini)
+              </div>
+              <div class="wine"><div class="name">Extra Brut Millesimato 2015</div><div class="meta">Uva: Garganega, Durella</div><div class="price">Asporto €31 · Servizio €39</div></div>
+              <div class="wine"><div class="name">Durello Riserva Millesimato 2016</div><div class="meta">Uva: Durella</div><div class="price">Asporto €37 · Servizio €47</div></div>
+
+              <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">
+                Produttore: Pojer E Sandri (Faedo)
+              </div>
+              <div class="wine"><div class="name">Brut Rosé Metodo Classico</div><div class="meta">Uva: Chardonnay, Pinot Nero</div><div class="price">Asporto €34 · Servizio €43</div></div>
+
+              <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">
+                Produttore: Pasetti (Parco Nazionale del Gran Sasso)
+              </div>
+              <div class="wine"><div class="name">“Vittoria Rosé” Metodo Classico Rosé Millesimato 2020 Pas Dosè</div><div class="meta">Uva: Pinot Nero</div><div class="price">Asporto €23 · Servizio €31</div></div>
+
+              <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">
+                Produttore: Velenosi (Ascoli Piceno)
+              </div>
+              <div class="wine"><div class="name">“The Rose” Brut Rosé Millesimato 2017</div><div class="meta">Uva: Pinot Nero, Chardonnay</div><div class="price">Asporto €24 · Servizio €32</div></div>
+
+            </div>
+          </div>
+        </div>
+
+<div class="subsection">
+            <div class="hdr-l2"><button aria-expanded="false" aria-controls="bollicine-it1"><span>Italia Metodo Charmat</span><span class="chev">+</span></button></div>
+            <div class="content-l2" id="bollicine-it1">
+              <div class="wines">
+
+                <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 4px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">
+                  Produttore: Bortolotti (Valdobbiadene)
+                </div>
+                <div class="wine"><div class="name">“CARTIZZE” VALDOBBIADENE DOCG SUPERIORE DRY</div><div class="meta">Uva: Glera</div><div class="price">Asporto €34 · Servizio €43</div></div>
+                <div class="wine"><div class="name">“OLTRE” EXTRA BRUT MILLESIMATO 2019</div><div class="meta">Uva: Johanniter, Bronner (Vitigni PIWI)</div><div class="price">Asporto €18 · Servizio €26</div></div>
+                <div class="wine"><div class="name">“Altena” Valdobbiadene DOCG Superiore Extra Brut</div><div class="meta">Uva: Glera</div><div class="price">Asporto €18 · Servizio €26</div></div>
+                <div class="wine"><div class="name">“CRIVEL” Valdobbiadene DOCG Superiore EXTRA DRY Millesimato 2021</div><div class="meta">Uva: Glera</div><div class="price">Asporto €18 · Servizio €26</div></div>
+                <div class="wine"><div class="name">CHARDONNAY EXTRA BRUT MILLESIMATO 2019</div><div class="meta">Uva: Chardonnay</div><div class="price">Asporto €18 · Servizio €26</div></div>
+                <div class="wine"><div class="name">PINOT COUPAGE EXTRA BRUT MILLESIMATO 2014</div><div class="meta">Uva: Pinot Nero</div><div class="price">Asporto €18 · Servizio €26</div></div>
+
+                <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">
+                  Produttore: Marsuret (Valdobbiadene)
+                </div>
+                <div class="wine"><div class="name">“RIVE DI GUIA” VALDOBBIADENE PROSECCO SUPERIORE DOCG EXTRA BRUT</div><div class="meta">Uva: Glera</div><div class="price">Asporto €18 · Servizio €26</div></div>
+                <div class="wine"><div class="name">“AMOLER” VALDOBBIADENE PROSECCO SUPERIORE DOCG EXTRA BRUT</div><div class="meta">Uva: Glera</div><div class="price">Asporto €17 · Servizio €25</div></div>
+                <div class="wine"><div class="name">“SAN BOLDO” VALDOBBIADENE PROSECCO SUPERIORE DOCG BRUT</div><div class="meta">Uva: Glera</div><div class="price">Asporto €17 · Servizio €25</div></div>
+                <div class="wine"><div class="name">“IL SOLLER” VALDOBBIADENE PROSECCO SUPERIORE DOCG EXTRA DRY</div><div class="meta">Uva: Glera</div><div class="price">Asporto €17 · Servizio €25</div></div>
+
+              </div>
+          </div>
+        </div>
+
+    </div>
+  </div>
+
+
+
+
+  <!-- Bianchi -->
+<div class="section">
+    <div class="hdr-l1"><button aria-expanded="false" aria-controls="bianchi"><span>Bianchi</span><span class="chev">+</span></button></div>
+    <div class="content-l1" id="bianchi">
+
+      <div class="subsection">
+        <div class="hdr-l2"><button aria-expanded="false" aria-controls="bianchi-it"><span>Italia</span><span class="chev">+</span></button></div>
+        <div class="content-l2" id="bianchi-it">
+          <div class="wines">
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 4px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Grosjean (Valle D’Aosta)</div>
+            <div class="wine"><div class="name">“Petit Arvine” Valléé D’Aoste DOC</div><div class="meta">Uva: Petit Arvine</div><div class="price">Asporto €29 · Servizio €37</div></div>
+           
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Angelo Negro (Piemonte)</div>
+            <div class="wine"><div class="name">“Perdaudin” Roero Arneis Riserva DOCG</div><div class="meta">Uva: Roero Arneis</div><div class="price">Asporto €18 · Servizio €26</div></div>
+            <div class="wine"><div class="name">“Serra Lupini” Roero Arneis DOCG</div><div class="meta">Uva: Roero Arneis</div><div class="price">Asporto €14 · Servizio €22</div></div>
+           
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">La Colombera (Piemonte)</div>
+            <div class="wine"><div class="name">“Derthona” Colli Tortonesi DOC</div><div class="meta">Uva: Timorasso</div><div class="price">Asporto €22 · Servizio €30</div></div>
+           
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Cà Dei Frati (Lombardia)</div>
+            <div class="wine"><div class="name">“I Frati” Lugana DOC</div><div class="meta">Uva: Turbiana di Lugana</div><div class="price">Asporto €16 · Servizio €24</div></div>
+            <div class="wine"><div class="name">“Brolettino” Lugana DOC</div><div class="meta">Uva: Turbiana di Lugana</div><div class="price">Asporto €19 · Servizio €27</div></div>
+           
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Cantina Bolzano (Alto Adige)</div>
+            <div class="wine"><div class="name">“Mock” Sauvignon Alto Adige DOC</div><div class="meta">Uva: Sauvignon</div><div class="price">Asporto €19 · Servizio €27</div></div>
+            <div class="wine"><div class="name">“Dellago” Pinot Bianco Alto Adige DOC</div><div class="meta">Uva: Pinot Bianco</div><div class="price">Asporto €18 · Servizio €26</div></div>
+            <div class="wine"><div class="name">“Stieler” Pinot Grigio Alto Adige DOC</div><div class="meta">Uva: Pinot Grigio</div><div class="price">Asporto €18 · Servizio €26</div></div>
+            <div class="wine"><div class="name">“Kleinstein” Chardonnay Alto Adige Doc</div><div class="meta">Uva: Chardonnay</div><div class="price">Asporto €18 · Servizio €26</div></div>
+           
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">KuenHof (Alto Adige)</div>
+            <div class="wine"><div class="name">“Kation” Riesling Valle Isarco A.A. DOC</div><div class="meta">Uva: Riesling</div><div class="price">Asporto €29 · Servizio €37</div></div>
+            <div class="wine"><div class="name">Gewurztraminer Valle Isarco A.A. DOC</div><div class="meta">Uva: Gewurztraminer</div><div class="price">Asporto €26 · Servizio €34</div></div>
+           
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Pojer e Sandri (Trentino)</div>
+            <div class="wine"><div class="name">Chardonnay IGT Vigneti Delle Dolomiti</div><div class="meta">Uva: Chardonnay</div><div class="price">Asporto €17 · Servizio €25</div></div>
+            <div class="wine"><div class="name">“Palai” IGT Vigneti Delle Dolomiti</div><div class="meta">Uva: Muller Thuragu</div><div class="price">Asporto €17 · Servizio €25</div></div>
+            <div class="wine"><div class="name">Nosiola IGT Vigneti delle Dolomiti</div><div class="meta">Uva: Nosiola</div><div class="price">Asporto €17 · Servizio €25</div></div>
+            <div class="wine"><div class="name">“Bianco Faye” IGT Vigneti Delle Dolomiti</div><div class="meta">Uva: Chardonnay, Pinot Bianco</div><div class="price">Asporto €36 · Servizio €45</div></div>
+           
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Graziano Prà (Veneto)</div>
+            <div class="wine"><div class="name">“Colle Sant’Antonio” Soave Classico DOC</div><div class="meta">Uva: Garganega</div><div class="price">Asporto €60 · Servizio €75</div></div>
+            <div class="wine"><div class="name">“Montegrande” Soave Classico DOC</div><div class="meta">Uva: Garganega, Trebbiano Di Soave</div><div class="price">Asporto €31 · Servizio €39</div></div>
+            <div class="wine"><div class="name">“Staforte” Soave Classico DOC</div><div class="meta">Uva: Garganega</div><div class="price">Asporto €20 · Servizio €28</div></div>
+            <div class="wine"><div class="name">“Otto” Soave Classico DOC</div><div class="meta">Uva: Garganega</div><div class="price">Asporto €15 · Servizio €23</div></div>
+           
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Drius (Friuli Venezia-Giulia)</div>
+            <div class="wine"><div class="name">“Sensar” DOC Isonzo Del Friuli</div><div class="meta">Uva: Friulano</div><div class="price">Asporto €29 · Servizio €37</div></div>
+            <div class="wine"><div class="name">“Vignis De Siris” DOC Isonzo Del Friuli</div><div class="meta">Uva: Friulano, Pinot Bianco, Sauvignon</div><div class="price">Asporto €23 · Servizio €31</div></div>
+            <div class="wine"><div class="name">Chardonnay DOC Isonzo Del Friuli</div><div class="meta">Uva: Chardonnay</div><div class="price">Asporto €18 · Servizio €26</div></div>
+            <div class="wine"><div class="name">Sauvignon DOC Collio</div><div class="meta">Uva: Sauvignon</div><div class="price">Asporto €18 · Servizio €26</div></div>
+            <div class="wine"><div class="name">Friulano DOC Collio</div><div class="meta">Uva: Friulano</div><div class="price">Asporto €18 · Servizio €26</div></div>
+            <div class="wine"><div class="name">Pinot Bianco DOC Isonzo Del Friuli</div><div class="meta">Uva: Pinot Bianco</div><div class="price">Asporto €18 · Servizio €26</div></div>
+            <div class="wine"><div class="name">Pinot Grigio DOC Isonzo Del Friuli</div><div class="meta">Uva: Pinot Grigio</div><div class="price">Asporto €18 · Servizio €26</div></div>
+            <div class="wine"><div class="name">Malvasia DOC Isonzo Del Friuli</div><div class="meta">Uva: Malvasia</div><div class="price">Asporto €18 · Servizio €26</div></div>
+           
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Zorzettig (Friuli Venezia-Giulia)</div>
+            <div class="wine"><div class="name">Ribolla Gialla Colli Orientali Del Friuli DOC</div><div class="meta">Uva: Ribolla Gialla</div><div class="price">Asporto €14 · Servizio €22</div></div>
+            <div class="wine"><div class="name">Chardonnay Colli Orientali Del Friuli DOC</div><div class="meta">Uva: Chardonnay</div><div class="price">Asporto €14 · Servizio €22</div></div>
+            <div class="wine"><div class="name">Pinot Grigio Colli Orientali Del Friuli DOC</div><div class="meta">Uva: Pinot Grigio</div><div class="price">Asporto €14 · Servizio €22</div></div>
+            <div class="wine"><div class="name">Friulano Colli Orientali Del Friuli DOC</div><div class="meta">Uva: Friulano</div><div class="price">Asporto €14 · Servizio €22</div></div>
+           
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Fattoria San Lorenzo (Marche)</div>
+            <div class="wine"><div class="name">“Campo Delle Oche” Marche IGT</div><div class="meta">Uva: Verdicchio</div><div class="price">Asporto €32 · Servizio €40</div></div>
+            <div class="wine"><div class="name">“Le Oche” Marche IGT</div><div class="meta">Uva: Verdicchio</div><div class="price">Asporto €21 · Servizio €29</div></div>
+            <div class="wine"><div class="name">“Di Gino” Marche IGT</div><div class="meta">Uva: Verdicchio</div><div class="price">Asporto €16 · Servizio €24</div></div>
+           
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Pasetti (Abruzzo)</div>
+            <div class="wine"><div class="name">“Testarossa Trebbiano” Trebbiano D’Abruzzo Superiore DOP</div><div class="meta">Uva: Trebbiano</div><div class="price">Asporto €24 · Servizio €32</div></div>
+            <div class="wine"><div class="name">“Testarossa Passerina” Terre Aquilane IGP</div><div class="meta">Uva: Passerina</div><div class="price">Asporto €14 · Servizio €22</div></div>
+            <div class="wine"><div class="name">“Collecivetta” Pecorino D’Abruzzo DOP</div><div class="meta">Uva: Pecorino</div><div class="price">Asporto €14 · Servizio €22</div></div>
+           
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Montecorvino (Lazio)</div>
+            <div class="wine"><div class="name">“La Casetta” Lazio IGT</div><div class="meta">Uva: Chardonnay</div><div class="price">Asporto €21 · Servizio €29</div></div>
+            <div class="wine"><div class="name">“Petrara” Lazio IGT</div><div class="meta">Uva: Chardonnay</div><div class="price">Asporto €19 · Servizio €27</div></div>
+            <div class="wine"><div class="name">“Ceviano” Lazio IGT</div><div class="meta">Uva: Trebbiano</div><div class="price">Asporto €15 · Servizio €23</div></div>
+           
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Cincinnato (Lazio)</div>
+            <div class="wine"><div class="name">“Enyo” Cori DOC</div><div class="meta">Uva: Bellone</div><div class="price">Asporto €16 · Servizio €24</div></div>
+            <div class="wine"><div class="name">“Pantaleo” IGT Lazio</div><div class="meta">Uva: Greco</div><div class="price">Asporto €10 · Servizio €18</div></div>
+           
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Di Meo (Campania)</div>
+            <div class="wine"><div class="name">“Alessandra” Fiano Di Avellino DOCG</div><div class="meta">Uva: Fiano Di Avellino</div><div class="price">Asporto €57 · Servizio €72</div></div>
+            <div class="wine"><div class="name">“Vittorio” Greco Di Tufo DOCG</div><div class="meta">Uva: Greco Di Tufo</div><div class="price">Asporto €64 · Servizio €80</div></div>
+            <div class="wine"><div class="name">“Colle Dei Cerri” Fiano Di Avellino DOCG</div><div class="meta">Uva: Fiano DI Avellino</div><div class="price">Asporto €67 · Servizio €84</div></div>
+           
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Rocca Del Principe (Campania)</div>
+            <div class="wine"><div class="name">Fiano Di Avellino DOCG</div><div class="meta">Uva: Fiano DI Avellino</div><div class="price">Asporto €24 · Servizio €32</div></div>
+           
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Antonio Caggiano (Campania)</div>
+            <div class="wine"><div class="name">“Devon” Greco DI Tufo DOCG</div><div class="meta">Uva: Greco Di Tufo</div><div class="price">Asporto €20 · Servizio €28</div></div>
+           
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Florami (Campania)</div>
+            <div class="wine"><div class="name">“Indole” Campania Falanghina IGT</div><div class="meta">Uva: Falanghina</div><div class="price">Asporto €20 · Servizio €28</div></div>
+           
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Barone Di Villagrande (Sicilia)</div>
+            <div class="wine"><div class="name">Etna Bianco DOC</div><div class="meta">Uva: Carricante, Vitigni Autoctoni</div><div class="price">Asporto €24 · Servizio €32</div></div>
+            
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Rallo (Sicilia)</div>
+            <div class="wine"><div class="name">“Bianco Maggiore” DOP Sicilia</div><div class="meta">Uva: Grillo</div><div class="price">Asporto €15 · Servizio €23</div></div>
+            <div class="wine"><div class="name">“Al-Qasar” DOP Sicilia</div><div class="meta">Uva: Zibibbo</div><div class="price">Asporto €16 · Servizio €24</div></div>
+           
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Cherchi (Sardegna)</div>
+            <div class="wine"><div class="name">“Tuvaoes” Vermentino Di Sardegna DOC</div><div class="meta">Uva: Vermentino</div><div class="price">Asporto €18 · Servizio €26</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <div class="hdr-l2"><button aria-expanded="false" aria-controls="bianchi-estero"><span>Estero</span><span class="chev">+</span></button></div>
+        <div class="content-l2" id="bianchi-estero">
+          <div class="wines">
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 4px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Francia – Borgogna</div>
+            <div class="wine"><div class="name">Chablis Premier Cru “Fourchaume” – Le Chablisienne</div><div class="meta">Uva: Chardonnay</div><div class="price">Asporto €64 · Servizio €80</div></div>
+            <div class="wine"><div class="name">Chablis Premier Cru “Mont De Milieu” – Domaine Besson</div><div class="meta">Uva: Chardonnay</div><div class="price">Asporto €50 · Servizio €63</div></div>
+            <div class="wine"><div class="name">Chablis AOC – Domaine Besson</div><div class="meta">Uva: Chardonnay</div><div class="price">Asporto €35 · Servizio €44</div></div>
+            <div class="wine"><div class="name">Santenay Gravieres Premier Cru – Domaine Michelot</div><div class="meta">Uva: Chardonnay</div><div class="price">Asporto €92 · Servizio €115</div></div>
+            <div class="wine"><div class="name">Bourgogne Chardonnay – Louis Latour</div><div class="meta">Uva: Chardonnay</div><div class="price">Asporto €29 · Servizio €37</div></div>
+            <div class="wine"><div class="name">Puligny Montrachet – Louis Latour</div><div class="meta">Uva: Chardonnay</div><div class="price">Asporto €133 · Servizio €167</div></div>
+            <div class="wine"><div class="name">Saint Romain – Domaine Trapet</div><div class="meta">Uva: Chardonnay</div><div class="price">Asporto €58 · Servizio €73</div></div>
+            <div class="wine"><div class="name">Bourgogne Chardonnay – Bruno Colin</div><div class="meta">Uva: Chardonnay</div><div class="price">Asporto €48 · Servizio €60</div></div>
+            <div class="wine"><div class="name">Pouilly Fuissè – Domaine Leflaive</div><div class="meta">Uva: Chardonnay</div><div class="price">€</div></div>
+            <div class="wine"><div class="name">“Le Monte” Macon Verzè – Domaine Leflaive</div><div class="meta">Uva: Chardonnay</div><div class="price">€</div></div>
+            <div class="wine"><div class="name">Bourgogne Blanc – Domaine Leflaive</div><div class="meta">Uva: Chardonnay</div><div class="price">€</div></div>
+            <div class="wine"><div class="name">Macon Verzè – Domaine Leflaive</div><div class="meta">Uva: Chardonnay</div><div class="price">€</div></div>
+            <div class="wine"><div class="name">Macon Igè – Domaine Leflaive</div><div class="meta">Uva: Chardonnay</div><div class="price">€</div></div>
+           
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Francia – Loira</div>
+            <div class="wine"><div class="name">“Les Belles Dames” Sancerre – Gitton</div><div class="meta">Uva: Sauvignon Blanc</div><div class="price">Asporto €40 · Servizio €50</div></div>
+            <div class="wine"><div class="name">Muscadet Sèvre Et Maine Sur Lie – Domaine Gildas Cormerais</div><div class="meta">Uva: Melon De Bourgogne</div><div class="price">Asporto €16 · Servizio €24</div></div>
+           
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Francia – Alsazia</div>
+            <div class="wine"><div class="name">“Hart Tradition” – Domaine Schoffit</div><div class="meta">Uva: Riesling</div><div class="price">Asporto €29 · Servizio €37</div></div>
+            <div class="wine"><div class="name">“Roche Calcaire” – Zind Humbrect</div><div class="meta">Uva: Pinot Gris</div><div class="price">Asporto €46 · Servizio €58</div></div>
+            
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Germania – Mosella</div>
+            <div class="wine"><div class="name">“Hattenheimer Engelmannsberg” – Balthasar Ress</div><div class="meta">Uva: Riesling</div><div class="price">Asporto €31 · Servizio €39</div></div>
+            <div class="wine"><div class="name">“Windvogt” Weissbungunder – Van Volxem</div><div class="meta">Uva: Pinot Bianco</div><div class="price">Asporto €44 · Servizio €55</div></div>
+            
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Slovenia</div>
+            <div class="wine"><div class="name">Rebula – Edi Simcic</div><div class="meta">Uva: Ribolla Gialla</div><div class="price">Asporto €34 · Servizio €43</div></div>
+            <div class="wine"><div class="name">Tokata – Edi Simcic</div><div class="meta">Uva: Friulano</div><div class="price">Asporto €32 · Servizio €40</div></div>
+            <div class="wine"><div class="name">Malvasia – Walter Sirk</div><div class="meta">Uva: Malvasia</div><div class="price">Asporto €25 · Servizio €33</div></div>
+            <div class="wine"><div class="name">Rebula – Walter Sirk</div><div class="meta">Uva: Ribolla Gialla</div><div class="price">Asporto €25 · Servizio €33</div></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Rossi -->
+<div class="section">
+    <div class="hdr-l1"><button aria-expanded="false" aria-controls="rossi"><span>Rossi</span><span class="chev">+</span></button></div>
+    <div class="content-l1" id="rossi">
+
+      <div class="subsection">
+        <div class="hdr-l2"><button aria-expanded="false" aria-controls="rossi-it"><span>Italia</span><span class="chev">+</span></button></div>
+        <div class="content-l2" id="rossi-it">
+          <div class="wines">
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 4px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Grosjean (Valle D’Aosta)</div>
+            <div class="wine"><div class="name">Syrah Valléé D’Aoste DOC</div><div class="meta">Uva: Syrah</div><div class="price">Asporto €23 · Servizio €31</div></div>
+            <div class="wine"><div class="name">Torrette Valléé D’Aoste DOC</div><div class="meta">Uva: Torrette</div><div class="price">Asporto €18 · Servizio €26</div></div>
+           
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Poderi Aldo Conterno (Piemonte)</div>
+            <div class="wine"><div class="name">“Colonnello” Barolo Bussia DOCG</div><div class="meta">Uva: Nebbiolo</div><div class="price">Asporto €175 · Servizio €219</div></div>
+            <div class="wine"><div class="name">“Bussia” Barolo Bussia DOCG</div><div class="meta">Uva: Nebbiolo</div><div class="price">Asporto €103 · Servizio €129</div></div>
+            <div class="wine"><div class="name">“Conca Tre Pile” Barbera D’Alba DOC</div><div class="meta">Uva: Barbera</div><div class="price">Asporto €43 · Servizio €54</div></div>
+            <div class="wine"><div class="name">“Il Favot” Langhe Nebbiolo DOC</div><div class="meta">Uva: Nebbiolo</div><div class="price">Asporto €59 · Servizio €62</div></div>
+            <div class="wine"><div class="name">“Quartetto” Langhe Rosso DOC</div><div class="meta">Uva: Nebbiolo, Pinot Nero, Merlot, Syrah</div><div class="price">Asporto €38 · Servizio €48</div></div>
+           
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Claudio Alario (Piemonte)</div>
+            <div class="wine"><div class="name">“Riva Rocca” Barolo DOCG</div><div class="meta">Uva: Nebbiolo</div><div class="price">Asporto €51 · Servizio €64</div></div>
+            <div class="wine"><div class="name">“Sorano” Barolo DOCG</div><div class="meta">Uva: Nebbiolo</div><div class="price">Asporto €57 · Servizio €72</div></div>
+            <div class="wine"><div class="name">“Cascinotto” Nebbiolo D’Alba DOC</div><div class="meta">Uva: Nebbiolo</div><div class="price">Asporto €31 · Servizio €39</div></div>
+            <div class="wine"><div class="name">“Valletta” Barbera D’Alba Superiore</div><div class="meta">Uva: Barbera</div><div class="price">Asporto €31 · Servizio €39</div></div>
+            <div class="wine"><div class="name">“Sorì Pradurent” Dolcetto Di Diano D’Alba DOCG</div><div class="meta">Uva: Dolcetto</div><div class="price">Asporto €19 · Servizio €27</div></div>
+            <div class="wine"><div class="name">“Sorì Costa Fiore” Dolcetto Di Diano D’Alba DOCG</div><div class="meta">Uva: Dolcetto</div><div class="price">Asporto €17 · Servizio €25</div></div>
+            <div class="wine"><div class="name">“Sorì Montagrillo” Dolcetto Di Diano D’Alba DOCG</div><div class="meta">Uva: Dolcetto</div><div class="price">Asporto €15 · Servizio €23</div></div>
+           
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Elvio Cogno (Piemonte)</div>
+            <div class="wine"><div class="name">“Ravera” Barolo DOCG</div><div class="meta">Uva: Nebbiolo</div><div class="price">Asporto €92 · Servizio €115</div></div>
+           
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Angelo Negro (Piemonte)</div>
+            <div class="wine"><div class="name">Barolo DOCG Serralunga D’Alba</div><div class="meta">Uva: Nebbiolo</div><div class="price">Asporto €48 · Servizio €60</div></div>
+            <div class="wine"><div class="name">“Sudisfà” Roero Riserva DOCG</div><div class="meta">Uva: Nebbiolo</div><div class="price">Asporto €43 · Servizio €54</div></div>
+            <div class="wine"><div class="name">“Basarin” Barbaresco DOCG</div><div class="meta">Uva: Nebbiolo</div><div class="price">Asporto €36 · Servizio €45</div></div>
+            <div class="wine"><div class="name">“Prachiosso” Roero DOCG</div><div class="meta">Uva: Nebbiolo</div><div class="price">Asporto €20 · Servizio €28</div></div>
+            <div class="wine"><div class="name">“Nicolon” Barbera D’Alba DOC</div><div class="meta">Uva: Barbera</div><div class="price">Asporto €18 · Servizio €26</div></div>
+            <div class="wine"><div class="name">“Angelin” Nebbiolo D’Alba DOC</div><div class="meta">Uva: Nebbiolo</div><div class="price">Asporto €15 · Servizio €23</div></div>
+           
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">G.D. Vajra (Piemonte)</div>
+            <div class="wine"><div class="name">Nebbiolo Langhe DOC</div><div class="meta">Uva: Nebbiolo</div><div class="price">Asporto €21 · Servizio €29</div></div>
+            <div class="wine"><div class="name">Barbera D’Alba DOC</div><div class="meta">Uva: Barbera</div><div class="price">Asporto €20 · Servizio €28</div></div>
+           
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Nino Negri (Lombardia)</div>
+            <div class="wine"><div class="name">“Vigna Fracia” Valtellina Superiore DOCG Valgella</div><div class="meta">Uva: Nebbiolo</div><div class="price">Asporto €41 · Servizio €52</div></div>
+           
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Plozza (Lombardia)</div>
+            <div class="wine"><div class="name">Rosso Di Valtellina DOC</div><div class="meta">Uva: Nebbiolo</div><div class="price">Asporto €15 · Servizio €23</div></div>
+           
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Cà Dei Frati (Lombardia)</div>
+            <div class="wine"><div class="name">“Ronchedone” Vino Rosso</div><div class="meta">Uva: Marzemino, Groppello, Barbera, Sangiovese</div><div class="price">Asporto €20 · Servizio €28</div></div>
+           
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Cà Di Frara (Lombardia)</div>
+            <div class="wine"><div class="name">“Losana Riserva” Oltrepò Pavese DOP</div><div class="meta">Uva: Pinot Nero</div><div class="price">Asporto €26 · Servizio €34</div></div>
+           
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Cantina Bolzano (Alto Adige)</div>
+            <div class="wine"><div class="name">“Taber” Lagrein Riserva Alto Adige DOC</div><div class="meta">Uva: Lagrein</div><div class="price">Asporto €54 · Servizio €68</div></div>
+            <div class="wine"><div class="name">“Thalman” Pinot Nero Riserva Alto Adige DOC</div><div class="meta">Uva: Nebbiolo</div><div class="price">Asporto €33 · Servizio €42</div></div>
+            <div class="wine"><div class="name">“Bachmann” Alto Adige DOC</div><div class="meta">Uva: Pinot Nero</div><div class="price">Asporto €25 · Servizio €33</div></div>
+            <div class="wine"><div class="name">“Perl” Alto Adige DOC</div><div class="meta">Uva: Lagrein</div><div class="price">Asporto €19 · Servizio €27</div></div>
+            <div class="wine"><div class="name">“Huck Am Buch” St. Magdalener Classico</div><div class="meta">Uva: Lagrein, Schiava</div><div class="price">Asporto €16 · Servizio €24</div></div>
+            <div class="wine"><div class="name">“Graf Huyn Cabernet Riserva” Alto Adige DOC</div><div class="meta">Uva: Cabernet Sauvignon</div><div class="price">Asporto €21 · Servizio €29</div></div>
+            <div class="wine"><div class="name">“Graf Huyn Merlot” Alto Adige DOC</div><div class="meta">Uva: Merlot</div><div class="price">Asporto €21 · Servizio €29</div></div>
+           
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Castel Sallegg (Alto Adige)</div>
+            <div class="wine"><div class="name">Pinot Noir Alto Adige DOC</div><div class="meta">Uva: Pinot Nero</div><div class="price">Asporto €20 · Servizio €28</div></div>
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Pisoni (Trentino)</div>
+            <div class="wine"><div class="name">“Pradi” Dolomiti IGT</div><div class="meta">Uva: Teroldego</div><div class="price">Asporto €15 · Servizio €23</div></div>
+            
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Pojer e Sandri (Trentino)</div>
+            <div class="wine"><div class="name">“Rosso Faye” IGT Vigneti Delle Dolomiti</div><div class="meta">Uva: Cabernet Sauvignon, Cabernet Franc, Merlot, Lagrein</div><div class="price">Asporto €52 · Servizio €65</div></div>
+            <div class="wine"><div class="name">Pinot Nero IGT Vigneti Delle Dolomiti</div><div class="meta">Uva: Pinot Nero</div><div class="price">Asporto €24 · Servizio €32</div></div>
+           
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Cà Dei Frati (Veneto)</div>
+            <div class="wine"><div class="name">“Pietro Dal Cero” Amarone Della Valpolicella DOCG</div><div class="meta">Uva: Corvina, Corvinone, Rondinella, Croatina</div><div class="price">Asporto €80 · Servizio €100</div></div>
+           
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Graziano Prà (Veneto)</div>
+            <div class="wine"><div class="name">Amarone Della Valpolicella DOCG</div><div class="meta">Uva: Corvina, Corvinone, Rondinella, Oseleta</div><div class="price">Asporto €67 · Servizio €84</div></div>
+            <div class="wine"><div class="name">“Morandina” Valpolicella Ripasso Superiore DOC</div><div class="meta">Uva: Corvina, Corvinone, Rondinella, Oseleta</div><div class="price">Asporto €25 · Servizio €33</div></div>
+            <div class="wine"><div class="name">“Morandina” Valpolicella Classico DOC</div><div class="meta">Uva: Corvina, Corvinone, Rondinella, Oseleta</div><div class="price">Asporto €16 · Servizio €24</div></div>
+           
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Le Salette (Veneto)</div>
+            <div class="wine"><div class="name">“I Progni” Valpolicella Ripasso Classico Superiore</div><div class="meta">Uva: Corvina, Corvinone, Rondinella, Oseleta, Dirindella</div><div class="price">Asporto €24 · Servizio €32</div></div>
+            <div class="wine"><div class="name">Valpolicella Classico DOC</div><div class="meta">Uva: Corvina, Corvinone, Rondinella, Croatina, Molinara</div><div class="price">Asporto €16 · Servizio €24</div></div>
+           
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Cà La Bionda (Veneto)</div>
+            <div class="wine"><div class="name">“Casal Vegri” Valpolicella Classico Superiore DOC</div><div class="meta">Uva: Corvina, Corvinone, Rondinella, Molinara</div><div class="price">Asporto €32 · Servizio €40</div></div>
+           
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Zorzettig (Friuli Venezia-Giulia)</div>
+            <div class="wine"><div class="name">“Myò Pignolo” Colli Orientali Friuli DOC</div><div class="meta">Uva: Pignolo</div><div class="price">Asporto €32 · Servizio €40</div></div>
+            <div class="wine"><div class="name">Cabernet Franc Colli Orientali Friuli DOC</div><div class="meta">Uva: Cabernet Franc</div><div class="price">Asporto €14 · Servizio €22</div></div>
+            <div class="wine"><div class="name">Cabernet Sauvignon Colli Orientali Friuli DOC</div><div class="meta">Uva: Cabernet sauvignon</div><div class="price">Asporto €14 · Servizio €22</div></div>
+            <div class="wine"><div class="name">Pinot Nero Venezia Giulia IGT</div><div class="meta">Uva: Pinot Nero</div><div class="price">Asporto €14 · Servizio €22</div></div>
+            <div class="wine"><div class="name">Merlot Colli Orientali Friuli DOC</div><div class="meta">Uva: Merlot</div><div class="price">Asporto €14 · Servizio €22</div></div>
+           
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Fattoria Zerbina (Emilia Romagna)</div>
+            <div class="wine"><div class="name">“Torre Di Ceprano” Sangiovese Di Romagna Superiore Riserva</div><div class="meta">Uva: Sangiovese</div><div class="price">Asporto €23 · Servizio €31</div></div>
+           
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Podere Le Berne (Toscana)</div>
+            <div class="wine"><div class="name">Nobile Di Montepulciano Riserva DOCG</div><div class="meta">Uva: Sangiovese</div><div class="price">Asporto €36 · Servizio €45</div></div>
+            <div class="wine"><div class="name">Nobile Di Montepulciano DOCG</div><div class="meta">Uva: Sangiovese</div><div class="price">Asporto €23 · Servizio €31</div></div>
+            <div class="wine"><div class="name">Rosso Di Montepulciano DOC</div><div class="meta">Uva: Sangiovese</div><div class="price">Asporto €15 · Servizio €23</div></div>
+           
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Argiano (Toscana)</div>
+            <div class="wine"><div class="name">Brunello Di Montalcino DOCG</div><div class="meta">Uva: Sangiovese</div><div class="price">Asporto €80 · Servizio €100</div></div>
+            <div class="wine"><div class="name">Rosso Di Montalcino DOC</div><div class="meta">Uva: Sangiovese</div><div class="price">Asporto €29 · Servizio €37</div></div>
+           
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">La Gerla (Toscana)</div>
+            <div class="wine"><div class="name">Brunello Di Montalcino DOCG</div><div class="meta">Uva: Sangiovese</div><div class="price">Asporto €47 · Servizio €59</div></div>
+            <div class="wine"><div class="name">“Birba” IGT Toscana</div><div class="meta">Uva: Sangiovese Grosso</div><div class="price">Asporto €26 · Servizio €34</div></div>
+            <div class="wine"><div class="name">Rosso DI Montalcino DOC</div><div class="meta">Uva: Sangiovese</div><div class="price">Asporto €22 · Servizio €30</div></div>
+            
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Michele Satta (Toscana)</div>
+            <div class="wine"><div class="name">Bolgheri Rosso DOC</div><div class="meta">Uva: Cabernet Sauvignon, Merlot, Sangiovese, Syrah</div><div class="price">Asporto €27 · Servizio €35</div></div>
+            
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Castello Di Bolgheri (Toscana)</div>
+            <div class="wine"><div class="name">“Vavàra” Bolgheri Rosso DOC</div><div class="meta">Uva: Cabernet Sauvignon, Merlot, Cabernet Franc, Petit Verdot</div><div class="price">Asporto €33 · Servizio €42</div></div>
+           
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Castello Di Monsanto (Toscana)</div>
+            <div class="wine"><div class="name">Chianti Classico DOCG</div><div class="meta">Uva: Sangiovese</div><div class="price">Asporto €25 · Servizio €33</div></div>
+           
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Tenuta Pietramora (Toscana)</div>
+            <div class="wine"><div class="name">“Germile” Morellino Di Scansano DOCG</div><div class="meta">Uva: Sangiovese</div><div class="price">Asporto €16 · Servizio €24</div></div>
+           
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Tenuta Canaio (Toscana)</div>
+            <div class="wine"><div class="name">“Terrasolla” Toscana IGT</div><div class="meta">Uva: Syrah</div><div class="price">Asporto €27 · Servizio €35</div></div>
+           
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Velenosi (Marche)</div>
+            <div class="wine"><div class="name">“Roggio Del Filare” Rosso Piceno Superiore DOC</div><div class="meta">Uva: Montepulciano, Sangiovese</div><div class="price">Asporto €40 · Servizio €50</div></div>
+            <div class="wine"><div class="name">“Ludi” Offida DOCG</div><div class="meta">Uva: Montepulciano, Cabernet Sauvignon, Merlot</div><div class="price">Asporto €42 · Servizio €53</div></div>
+            <div class="wine"><div class="name">“Ninfa” Marche IGT</div><div class="meta">Uva: Cabernet Sauvignon, Sangiovese, Merlot, Syrah</div><div class="price">Asporto €19 · Servizio €27</div></div>
+           
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Pasetti (Abruzzo)</div>
+            <div class="wine"><div class="name">“Harimann” Montepulciano D’Abruzzo DOP</div><div class="meta">Uva: Montepulciano</div><div class="price">Asporto €42 · Servizio €53</div></div>
+            <div class="wine"><div class="name">“Testarossa Rosso” Montepulciano D’Abruzzo Riserva DOP</div><div class="meta">Uva: Montepulciano</div><div class="price">Asporto €27 · Servizio €53</div></div>
+            <div class="wine"><div class="name">“Madonnella” Montepulciano D’Abruzzo DOP</div><div class="meta">Uva: Montepulciano</div><div class="price">Asporto €15 · Servizio €23</div></div>
+            
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Adanti (Umbria)</div>
+            <div class="wine"><div class="name">Rosso Di Montefalco DOC</div><div class="meta">Uva: Sangiovese, Sagrantino</div><div class="price">Asporto €15 · Servizio €23</div></div>
+           
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Rocca Dei Fabbri (Umbria)</div>
+            <div class="wine"><div class="name">Sagrantino Di Montefalco DOCG</div><div class="meta">Uva: Sagrantino</div><div class="price">Asporto €33 · Servizio €42</div></div>
+            
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Montecorvino (Lazio)</div>
+            <div class="wine"><div class="name">“La Rave” Lazio IGT</div><div class="meta">Uva: Merlot</div><div class="price">Asporto €26 · Servizio €34</div></div>
+            <div class="wine"><div class="name">“Rapiglio” Lazio IGT</div><div class="meta">Uva: Merlot</div><div class="price">Asporto €19 · Servizio €27</div></div>
+            <div class="wine"><div class="name">“Selvascura” Lazio IGT</div><div class="meta">Uva: Montepulciano</div><div class="price">Asporto €26 · Servizio €34</div></div>
+            
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Pileum (Lazio)</div>
+            <div class="wine"><div class="name">“Bolla D’Urbano” Cesanese Del Piglio Riserva DOCG</div><div class="meta">Uva: Cesanese</div><div class="price">Asporto €27 · Servizio €35</div></div>
+            <div class="wine"><div class="name">“Massitium” Cesanese Del Piglio Superiore DOCG</div><div class="meta">Uva: Cesanese</div><div class="price">Asporto €15 · Servizio €23</div></div>
+            
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Cincinnato (Lazio)</div>
+            <div class="wine"><div class="name">“Kora” Cori DOC</div><div class="meta">Uva: Nero Buono</div><div class="price">Asporto €22 · Servizio €30</div></div>
+            <div class="wine"><div class="name">“Ercole” Lazio IGT</div><div class="meta">Uva: Nero Buono</div><div class="price">Asporto €16 · Servizio €24</div></div>
+            
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Di Meo (Campania)</div>
+            <div class="wine"><div class="name">Taurasi Riserva DOCG</div><div class="meta">Uva: Aglianico</div><div class="price">Asporto €46 · Servizio €58</div></div>
+            <div class="wine"><div class="name">Aglianico Campania IGT</div><div class="meta">Uva: Aglianico</div><div class="price">Asporto €21 · Servizio €29</div></div>
+            
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Rocca Del Principe (Campania)</div>
+            <div class="wine"><div class="name">Aglianico Irpinia DOP</div><div class="meta">Uva: Aglianico</div><div class="price">Asporto €18 · Servizio €26</div></div>
+            
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Schola Sarmenti (Puglia)</div>
+            <div class="wine"><div class="name">“Diciotto” Salento IGT</div><div class="meta">Uva: Primitivo</div><div class="price">Asporto €55 · Servizio €69</div></div>
+            <div class="wine"><div class="name">“Artetica” Salento IGT</div><div class="meta">Uva: Primitivo, Negramaro</div><div class="price">Asporto €21 · Servizio €29</div></div>
+            <div class="wine"><div class="name">“Nauna” Salento IGT</div><div class="meta">Uva: Negramaro, Primitivo</div><div class="price">Asporto €19 · Servizio €27</div></div>
+            <div class="wine"><div class="name">“Cubardi” Salento IGT</div><div class="meta">Uva: Primitivo</div><div class="price">Asporto €17 · Servizio €25</div></div>
+            <div class="wine"><div class="name">“Antieri” Salento IGT</div><div class="meta">Uva: Susumaniello</div><div class="price">Asporto €19 · Servizio €27</div></div>
+            <div class="wine"><div class="name">“Chiacchierino” Primitivo DI Manduria DOC</div><div class="meta">Uva: Primitivo Di Manduria</div><div class="price">Asporto €20 · Servizio €28</div></div>
+            <div class="wine"><div class="name">“Nerio” Salento IGT Riserva</div><div class="meta">Uva: Negramaro, Malvasia Nera</div><div class="price">Asporto €16 · Servizio €24</div></div>
+            
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Barone Di Villagrande (Sicilia)</div>
+            <div class="wine"><div class="name">Etna Rosso DOC</div><div class="meta">Uva: Nerello Mascalese, Nerello Cappuccio</div><div class="price">Asporto €24 · Servizio €32</div></div>
+            
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Benanti (Sicilia)</div>
+            <div class="wine"><div class="name">“Contrada Cavaliere” Etna Bianco DOC</div><div class="meta">Uva: Nerello Mascalese</div><div class="price">Asporto €46 · Servizio €58</div></div>
+            
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Cherchi (Sardegna)</div>
+            <div class="wine"><div class="name">Cannonau Di Sardegna DOC</div><div class="meta">Uva: Cannonau</div><div class="price">Asporto €22 · Servizio €30</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <div class="hdr-l2"><button aria-expanded="false" aria-controls="rossi-estero"><span>Estero</span><span class="chev">+</span></button></div>
+        <div class="content-l2" id="rossi-estero">
+          <div class="wines">
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 4px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Francia - Bordeaux</div>
+            <div class="wine"><div class="name">Boredeaux Superior – Cheateau De Reignac</div><div class="meta">Uva: Merlot, Cabernet Sauvignon, Cabernet Franc</div><div class="price">Asporto €27 · Servizio €35</div></div>
+            <div class="wine"><div class="name">“Chateau Palais Cardinal” – Le Palatin</div><div class="meta">Uva: Merlot, Cabernet Sauvignon, Cabernet Franc</div><div class="price">Asporto €33 · Servizio €42</div></div>
+           
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Francia - Valle Del Rodano</div>
+            <div class="wine"><div class="name">“Le Rosine” – Stephane Ogier</div><div class="meta">Uva: Syrah</div><div class="price">Asporto €41 · Servizio €52</div></div>
+            
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Francia – Borgogna</div>
+            <div class="wine"><div class="name">Bourgogne Hautes De Cotes De Nuits Rouge – Domaine Michel Gros</div><div class="meta">Uva: Pinot Noir</div><div class="price">Asporto €57 · Servizio €72</div></div>
+            <div class="wine"><div class="name">“Valmossine” - Louis Latour</div><div class="meta">Uva: Pinot Noir</div><div class="price">Asporto €28 · Servizio €36</div></div>
+            <div class="wine"><div class="name">Marsannay – Louis Latour</div><div class="meta">Uva: Pinot Noir</div><div class="price">Asporto €46 · Servizio €58</div></div>
+            <div class="wine"><div class="name">“Les Pierres Dores” – Louis Latour</div><div class="meta">Uva: Pinot Noir</div><div class="price">Asporto €36 · Servizio €45</div></div>
+            <div class="wine"><div class="name">Bourgogne Pinot Noir – Roche Bellene</div><div class="meta">Uva: Pinot Noir</div><div class="price">Asporto €40 · Servizio €50</div></div>
+            <div class="wine"><div class="name">Auxey Duresses – Domaine Trapet</div><div class="meta">Uva: Pinot Noir</div><div class="price">Asporto €57 · Servizio €72</div></div>
+            
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Francia – Loira</div>
+            <div class="wine"><div class="name">Saumur Champigny – Chateau De Villeneuve</div><div class="meta">Uva: Cabernet Franc</div><div class="price">Asporto €25 · Servizio €33</div></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+
+
+  <!-- Rosati -->
+<div class="section">
+    <div class="hdr-l1"><button aria-expanded="false" aria-controls="rosati"><span>Rosati</span><span class="chev">+</span></button></div>
+    <div class="content-l1" id="rosati">
+
+      <div class="subsection">
+        <div class="hdr-l2"><button aria-expanded="false" aria-controls="rosati-it"><span>Italia</span><span class="chev">+</span></button></div>
+        <div class="content-l2" id="rosati-it">
+          <div class="wines">
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 4px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Barone Di Villagrande (Sicilia)</div>
+            <div class="wine"><div class="name">Etna Rosato DOC</div><div class="meta">Uva: Nerello Mascalese, Carricante</div><div class="price">Asporto €22 · Servizio €30</div></div>
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Cà Dei Frati (Lombardia)</div>
+            <div class="wine"><div class="name">“Rosa Dei Frati”</div><div class="meta">Uva: Marzemino, Groppello, Barbera, Sangiovese</div><div class="price">Asporto €15 · Servizio €23</div></div>
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Pasetti (Abruzzo)</div>
+            <div class="wine"><div class="name">“Testarossa Cerasuolo” Cerasuolo D’Abruzzo DOP</div><div class="meta">Uva: Montepulciano</div><div class="price">Asporto €23 · Servizio €31</div></div>
+            <div class="wine"><div class="name">“Testarossa Rosato” Terre Aquilane IGP</div><div class="meta">Uva: Montepulciano</div><div class="price">Asporto €15 · Servizio €23</div></div>
+            <div style="font-weight: 700; font-size: 16px; color: #394a9a; margin-top: 18px; margin-bottom: 4px; border-bottom: 1px solid #5a6bc9; padding-bottom: 3px;">Schola Sarmenti (Puglia)</div>
+            <div class="wine"><div class="name">“Masserei” DOP Salento</div><div class="meta">Uva: Negramaro</div><div class="price">Asporto €14 · Servizio €22</div></div>
+            <div class="wine"><div class="name">“Antieri Rosé” IGP Salento</div><div class="meta">Uva: Susumaniello</div><div class="price">Asporto €19 · Servizio €27</div></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+
+<script>
+// Level 1 accordion
+document.querySelectorAll('.hdr-l1 button').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const expanded=btn.getAttribute('aria-expanded')==='true';
+    btn.setAttribute('aria-expanded',String(!expanded));
+    const panel=document.getElementById(btn.getAttribute('aria-controls'));
+    panel.classList.toggle('open',!expanded);
+    btn.querySelector('.chev').textContent=!expanded?'−':'+';
+    // close others
+    document.querySelectorAll('.hdr-l1 button').forEach(other=>{
+      if(other!==btn){
+        other.setAttribute('aria-expanded','false');
+        document.getElementById(other.getAttribute('aria-controls')).classList.remove('open');
+        other.querySelector('.chev').textContent='+';
+      }
+    });
+  });
+});
+// Level 2 accordion
+document.querySelectorAll('.hdr-l2 button').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const expanded=btn.getAttribute('aria-expanded')==='true';
+    btn.setAttribute('aria-expanded',String(!expanded));
+    const panel=document.getElementById(btn.getAttribute('aria-controls'));
+    panel.classList.toggle('open',!expanded);
+    btn.querySelector('.chev').textContent=!expanded?'−':'+';
+    // close siblings
+    const parent=btn.closest('.content-l1');
+    parent.querySelectorAll('.hdr-l2 button').forEach(other=>{
+      if(other!==btn){
+        other.setAttribute('aria-expanded','false');
+        document.getElementById(other.getAttribute('aria-controls')).classList.remove('open');
+        other.querySelector('.chev').textContent='+';
+      }
+    });
+  });
+});
+</script>
+
+<script>
+  // Auto-resize inside iframe and notify parent (Google Sites) about new height.
+  function sendHeight() {
+    try {
+      const h = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+      document.documentElement.style.height = h + 'px';
+      document.body.style.height = h + 'px';
+      // Try to notify parent (some hosts listen for postMessage)
+      window.parent.postMessage({type: 'carta_dei_vini_resize', height: h}, '*');
+    } catch (e) {
+      // ignore
+    }
+  }
+
+  // Call immediately and on events
+  window.addEventListener('load', () => {
+    sendHeight();
+    // small burst of repeated updates to allow dynamic expansions to settle
+    let n=0;
+    const t = setInterval(()=>{
+      sendHeight();
+      n++;
+      if(n>10) clearInterval(t);
+    }, 200);
+  });
+
+  // Observe DOM changes (accordion opens/closes)
+  const mo = new MutationObserver(mutations=>{
+    sendHeight();
+  });
+  mo.observe(document.body, {subtree: true, childList: true, attributes: true, characterData: true});
+
+  // Also on resize / orientation change / touchend (mobile)
+  window.addEventListener('resize', sendHeight);
+  window.addEventListener('orientationchange', sendHeight);
+  window.addEventListener('touchend', ()=>{ setTimeout(sendHeight, 200); });
+
+  // If accordion buttons exist, hook them to sendHeight after their click handlers run
+  setTimeout(()=>{
+    document.querySelectorAll('.hdr-l1 button, .hdr-l2 button').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        // give existing handlers a chance to run and then update height
+        setTimeout(sendHeight, 150);
+        // also quick burst
+        let k=0;
+        const ti = setInterval(()=>{ sendHeight(); k++; if(k>6) clearInterval(ti); }, 150);
+      }, {passive: true});
+    });
+  }, 400);
+</script>
+
+</body>
+</html>
